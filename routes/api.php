@@ -12,9 +12,13 @@ $router->group([
     $router->put('change-password', 'Auth\ChangePasswordController@update');
 
     // Category
-    $router->get('/categories', 'CategoryController@index');
-    $router->get('/categories/{category}', 'CategoryController@show');
-    $router->post('/categories', 'CategoryController@store');
-    $router->put('/categories/{category}', 'CategoryController@update');
-    $router->delete('/categories/{category}', 'CategoryController@destroy');
+    $router->get('categories', 'CategoryController@index');
+    $router->get('categories/{category}', 'CategoryController@show');
+    $router->post('categories', 'CategoryController@store');
+    $router->put('categories/{category}', 'CategoryController@update');
+    $router->delete('categories/{category}', 'CategoryController@destroy');
+
+    // User Transaction
+    // index
+    $router->post('transactions', 'Transaction\TransactionController@store');
 });
