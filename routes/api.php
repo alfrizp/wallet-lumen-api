@@ -4,7 +4,6 @@ $router->group([
     'prefix' => 'api/v1',
     // 'namespace' => 'Api\V1'
 ], function () use ($router) {
-
     // Auth
     $router->post('auth/register', 'Auth\RegisterController@register');
     $router->post('auth/login', 'Auth\AuthController@login');
@@ -20,5 +19,8 @@ $router->group([
 
     // User Transaction
     // index
+    // show
     $router->post('transactions', 'Transaction\TransactionController@store');
+    $router->put('transactions/{transaction}', 'Transaction\TransactionController@update');
+    $router->delete('transactions/{transaction}', 'Transaction\TransactionController@destroy');
 });

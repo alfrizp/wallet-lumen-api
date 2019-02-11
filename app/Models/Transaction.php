@@ -15,6 +15,11 @@ class Transaction extends Model
         'category_id', 'user_id',
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'id';
+    }
+
     public function creator()
     {
         return $this->belongsTo(User::class);

@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Transformers\CategoryTransformer;
 
-class Category extends Model {
+class Category extends Model
+{
     use SoftDeletes;
 
     protected $table = 'categories';
@@ -15,14 +16,21 @@ class Category extends Model {
 
     protected $fillable = [
         'name', 'description', 'color',
-        'user_id'
+        'user_id',
     ];
 
-    public function getRouteKeyName() {
+    public function getRouteKeyName()
+    {
         return 'id';
     }
 
-    public function creator() {
+    public function creator()
+    {
         return $this->belongsTo(User::class);
+    }
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
     }
 }
