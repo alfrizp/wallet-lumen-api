@@ -4,6 +4,7 @@ return [
     // Labels
     'transactions' => 'Transactions data',
     'transaction' => 'Transaction data',
+    'total' => 'Total transactions data',
 
     // Actions
     'created' => 'A new Transaction has been created',

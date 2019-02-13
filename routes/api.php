@@ -18,9 +18,12 @@ $router->group([
     $router->delete('categories/{category}', 'CategoryController@destroy');
 
     // User Transaction
-    // index
-    // show
+    $router->get('transactions', 'Transaction\TransactionController@index');
+    $router->get('transactions/{transaction}', 'Transaction\TransactionController@show');
     $router->post('transactions', 'Transaction\TransactionController@store');
     $router->put('transactions/{transaction}', 'Transaction\TransactionController@update');
     $router->delete('transactions/{transaction}', 'Transaction\TransactionController@destroy');
+
+    // User TotalTransaction
+    $router->get('total-transactions', 'Transaction\TotalTransactionController@index');
 });
