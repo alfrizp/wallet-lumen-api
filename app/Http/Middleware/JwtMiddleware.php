@@ -10,22 +10,23 @@ use Firebase\JWT\ExpiredException;
 use App\Traits\ApiResponser;
 use Illuminate\Auth\AuthenticationException;
 
-class JwtMiddleware {
+class JwtMiddleware
+{
     use ApiResponser;
 
     public function handle($request, Closure $next, $guard = null)
     {
         $token = $request->header('token') ?: $request->header('api_token');
 
-        if(!$token) {
+        if (!$token) {
             throw new AuthenticationException();
         }
 
         try {
             $credentials = JWT::decode($token, env('JWT_SECRET'), ['HS256']);
-        } catch(ExpiredException $e) {
+        } catch (ExpiredException $e) {
             return $this->errorResponse('Provided token is expired', 400);
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             return $this->errorResponse('Invalid token', 400);
         }
 

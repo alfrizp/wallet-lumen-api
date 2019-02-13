@@ -17,14 +17,15 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     public $transformer = UserTransformer::class;
     protected $dates = ['deleted_at'];
     protected $fillable = [
-        'name', 'email', 'password'
+        'name', 'email', 'password',
     ];
 
     protected $hidden = [
-        'password', 'deleted_at'
+        'password', 'deleted_at',
     ];
 
-    public function categories() {
+    public function categories()
+    {
         return $this->hasMany(Category::class);
     }
 }

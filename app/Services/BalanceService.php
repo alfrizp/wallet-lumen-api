@@ -6,7 +6,8 @@ use Carbon\Carbon;
 
 class BalanceService
 {
-    public static function getStartBalance($transactions) {
+    public static function getStartBalance($transactions)
+    {
         $startBalance = 0;
         if ($transactions->last()) {
             $startBalance = balance(
@@ -18,7 +19,8 @@ class BalanceService
         return $startBalance;
     }
 
-    public static function getEndBalance($transactions) {
+    public static function getEndBalance($transactions)
+    {
         $endBalance = 0;
         if ($transactions->first()) {
             $endBalance = balance($transactions->first()->date);

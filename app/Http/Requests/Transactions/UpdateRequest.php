@@ -6,7 +6,8 @@ use Pearl\RequestValidate\RequestAbstract;
 
 class UpdateRequest extends RequestAbstract
 {
-    public function rules() {
+    public function rules()
+    {
         return [
             'date' => 'required|date|date_format:Y-m-d',
             'amount' => 'required|max:60',
