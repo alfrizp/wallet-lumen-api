@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alip
- * Date: 12/02/19
- * Time: 8:32
- */
 
 namespace App\Resources;
 

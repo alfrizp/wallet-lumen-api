@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Resources\CategoryCollection;
+use App\Resources\CategoryResource;
 use Illuminate\Http\Request;
 use App\Http\Requests\Categories\CreateRequest;
 use App\Http\Requests\Categories\UpdateRequest;
@@ -20,12 +22,12 @@ class CategoryController extends ApiController
     {
         $categories = request()->user->categories;
 
-        return $this->showAll($categories, __('category.categories'));
+        return new CategoryCollection($categories, __('category.categories'));
     }
 
     public function show(Category $category)
     {
-        return $this->showOne($category, __('category.category'));
+        return new CategoryResource($category, __('category.category'));
     }
 
     public function store(CreateRequest $categoryCreateRequest)

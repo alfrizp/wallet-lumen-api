@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alip
- * Date: 12/02/19
- * Time: 18:55
- */
 
 namespace App\Resources;
 
@@ -26,12 +20,12 @@ class CategoryResource extends ApiResource
         $category = $this->resource;
 
         return [
-            'id' => (int)$category->id,
-            'name' => (string)$category->name,
-            'description' => (string)$category->description,
-            'color' => isset($category->color) ? (string)$category->color : null,
-            'created_at' => (int)$category->created_at->timestamp,
-            'updated_at' => (int)$category->updated_at->timestamp,
+            'id' => (int) $category->id,
+            'name' => (string) $category->name,
+            'description' => (string) $category->description,
+            'color' => isset($category->color) ? (string) $category->color : null,
+            'created_at' => (int) $category->created_at->timestamp,
+            'updated_at' => (int) $category->updated_at->timestamp,
         ];
     }
 }
