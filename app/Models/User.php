@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Transformers\UserTransformer;
 use Illuminate\Auth\Authenticatable;
 use Laravel\Lumen\Auth\Authorizable;
 use Illuminate\Database\Eloquent\Model;
@@ -14,7 +13,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 {
     use Authenticatable, Authorizable, SoftDeletes;
 
-    public $transformer = UserTransformer::class;
     protected $dates = ['deleted_at'];
     protected $fillable = [
         'name', 'email', 'password',

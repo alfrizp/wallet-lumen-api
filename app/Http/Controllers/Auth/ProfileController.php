@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\ApiController;
+use App\Resources\UserResource;
 
 class ProfileController extends ApiController
 {
@@ -15,6 +16,6 @@ class ProfileController extends ApiController
     {
         $profile = request()->user;
 
-        return $this->showOne($profile, __('auth.profile'));
+        return new UserResource($profile, __('auth.profile'));
     }
 }
